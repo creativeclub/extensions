@@ -3,7 +3,7 @@ import { jiraRequest } from "./requests";
 import { issuesValidator, projectsValidator } from "./validators";
 
 export const getProjects = async () => {
-  const response = await jiraRequest(`/rest/api/3/project/search`);
+  const response = await jiraRequest(`/rest/api/3/project/search&maxResults=500&startAt=0`);
   return projectsValidator(response) ? response.values : [];
 };
 
